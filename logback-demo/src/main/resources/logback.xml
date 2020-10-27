@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="false" scanPeriod="30 seconds">
+  <!-- https://jira.qos.ch/browse/LOGBACK-1090 -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS}\t%level\t%thread\t%X{traceId}\t|\t%msg%n"/>
+  <property name="baseDir" value="/logs/logback-demo"/>
+  <property name="prefix" value="${baseDir}/%d{yyyy-MM, aux}/%d{yyyy-MM-dd}"/>
+  <property name="suffix" value="%d{yyyy-MM-dd}.%i.log.gz"/>
+
+
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${pattern}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <!-- region [App File Appender] -->
+
+  <appender name="app" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${baseDir}/app.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${prefix}/app.${suffix}</fileNamePattern>
+      <maxFileSize>10MB</maxFileSize>
+      <maxHistory>20</maxHistory>
+      <totalSizeCap>5GB</totalSizeCap>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${pattern}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="async-app" class="ch.qos.logback.classic.AsyncAppender">
+    <discardingThreshold>0</discardingThreshold>
+    <queueSize>1024</queueSize>
+    <appender-ref ref="app"/>
+  </appender>
+
+  <!-- endregion [App File Appender] -->
+
+  <!-- region [Root File Appender] -->
+
+  <appender name="root" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${baseDir}/root.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${prefix}/root.${suffix}</fileNamePattern>
+      <maxFileSize>10MB</maxFileSize>
+      <maxHistory>20</maxHistory>
+      <totalSizeCap>5GB</totalSizeCap>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${pattern}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="async-root" class="ch.qos.logback.classic.AsyncAppender">
+    <discardingThreshold>0</discardingThreshold>
+    <queueSize>1024</queueSize>
+    <appender-ref ref="root"/>
+  </appender>
+
+  <!-- endregion [Root File Appender] -->
+
+
+  <logger name="io.github.linwancen.demo.logback" level="info" additivity="false">
+    <!--<appender-ref ref="Console"/>-->
+    <appender-ref ref="async-app"/>
+  </logger>
+
+  <logger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+
+  <root level="warn">
+    <!--<appender-ref ref="Console"/>-->
+    <appender-ref ref="async-root"/>
+  </root>
+
+</configuration>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30">
+
+  <Properties>
+    <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS}\t%level\t%thread\t%X{traceId}\t|\t%msg%n</Property>
+    <Property name="baseDir">/logs/log4j2-demo</Property>
+    <Property name="prefix">${baseDir}/$${date:yyyy-MM}/$${date:yyyy-MM-dd}</Property>
+    <Property name="suffix">%d{yyyy-MM-dd}.%i.log.gz</Property>
+  </Properties>
+
+  <Appenders>
+
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${pattern}" charset="UTF-8"/>
+    </Console>
+
+    <RollingRandomAccessFile name="app" fileName="${baseDir}/app.log" filePattern="${prefix}/app.${suffix}">
+      <PatternLayout>
+        <Pattern>${pattern}</Pattern>
+        <Charset>UTF-8</Charset>
+      </PatternLayout>
+      <Policies>
+        <OnStartupTriggeringPolicy/>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="10 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="20">
+        <Delete basePath="${baseDir}" maxDepth="2">
+          <IfFileName glob="*/app.*.log.gz"/>
+          <IfLastModified age="400d"/>
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingRandomAccessFile>
+
+    <RollingRandomAccessFile name="root" fileName="${baseDir}/root.log" filePattern="${prefix}/root.${suffix}">
+      <PatternLayout>
+        <Pattern>${pattern}</Pattern>
+        <Charset>UTF-8</Charset>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <OnStartupTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="10 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="20">
+        <Delete basePath="${baseDir}" maxDepth="2">
+          <IfFileName glob="*/root.*.log.gz"/>
+          <IfLastModified age="200d"/>
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingRandomAccessFile>
+
+  </Appenders>
+
+
+  <Loggers>
+
+    <AsyncLogger name="io.github.linwancen.demo.log4j2" level="info" additivity="false">
+      <!--<AppenderRef ref="Console"/>-->
+      <AppenderRef ref="app"/>
+    </AsyncLogger>
+
+    <AsyncLogger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+
+    <AsyncRoot level="warn">
+      <!--<AppenderRef ref="Console"/>-->
+      <AppenderRef ref="root"/>
+    </AsyncRoot>
+
+  </Loggers>
+
+</Configuration>

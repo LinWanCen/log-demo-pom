@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.github.linwancen.demo</groupId>
+  <artifactId>log-demo-pom</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>${project.artifactId} | 日志演示聚合项目</name>
+  <description>用于一起编译，不要以此为父项目</description>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>log4j2-demo</module>
+    <module>logback-demo</module>
+  </modules>
+
+  <!-- skip all and remove warn -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.main.skip>true</maven.main.skip>
+    <maven.test.skip>true</maven.test.skip>
+    <jar.skipIfEmpty>true</jar.skipIfEmpty>
+    <maven.install.skip>true</maven.install.skip>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
+
+</project>
