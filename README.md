@@ -11,7 +11,7 @@
 
 [Log4j2Demo.java](log4j2-demo/src/main/java/io/github/linwancen/demo/log4j2/Log4j2Demo.java)
 
-[logback.java](logback-demo/src/main/java/io/github/linwancen/demo/logback/LogbackDemo.java)
+[LogbackDemo.java](logback-demo/src/main/java/io/github/linwancen/demo/logback/LogbackDemo.java)
 
 
 ## 官方文档参考 Documentation
