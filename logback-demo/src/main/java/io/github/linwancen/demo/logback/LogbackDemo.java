@@ -8,10 +8,12 @@ import java.util.UUID;
 
 public class LogbackDemo {
 
+    private static final Logger LINK_LOGGER = LoggerFactory.getLogger("Link");
     private static final Logger LOGGER = LoggerFactory.getLogger(LogbackDemo.class);
     private static final Logger LOGGER_OTHER = LoggerFactory.getLogger("other");
 
     public static void main(String[] args) {
+        LINK_LOGGER.info("IntelliJ IDEA Link");
         String traceId = UUID.randomUUID().toString().replace("-", "");
         MDC.put("traceId", traceId);
         int i = 0;

@@ -21,3 +21,9 @@
 [logback](http://logback.qos.ch/manual/appenders.html)
 
 [slf4j](http://www.slf4j.org/faq.html#yet_another_facade)
+
+
+## 更新日志 Update log
+
+增加了在 IntelliJ IDEA 中显示链接的配置，用于演示程序
+add show link for demo
