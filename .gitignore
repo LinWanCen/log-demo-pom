@@ -4,11 +4,11 @@ target/
 
 ### IntelliJ IDEA ###
 *.iml
-.idea
+**/.idea/*
 #### 运行配置
-!.idea/runConfigurations
+!**/.idea/runConfigurations
 #### 搜索范围
-!.idea/scopes
+!**/.idea/scopes
 
 ### STS ###
 .apt_generated
