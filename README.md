@@ -14,6 +14,13 @@
 [LogbackDemo.java](logback-demo/src/main/java/io/github/linwancen/demo/logback/LogbackDemo.java)
 
 
+## 依赖配置 Maven pom
+
+[log4j2-demo/pom.xml](log4j2-demo/pom.xml)
+
+[logback-demo/pom.xml](logback-demo/pom.xml)
+
+
 ## 官方文档参考 Documentation
 
 [log4j2](http://logging.apache.org/log4j/2.x/manual/appenders.html)
@@ -27,3 +34,15 @@
 
 增加了在 IntelliJ IDEA 中显示链接的配置，用于演示程序
 add show link for demo
+
+
+## 代码扫描 SonarCloud
+
+指标  | 徽章
+---   | ---
+安全  | [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=LinWanCen_log-demo-pom&metric=security_rating)](https://sonarcloud.io/dashboard?id=LinWanCen_log-demo-pom)
+可维护| [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=LinWanCen_log-demo-pom&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=LinWanCen_log-demo-pom)
+可靠性| [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=LinWanCen_log-demo-pom&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=LinWanCen_log-demo-pom)
+错误  | [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=LinWanCen_log-demo-pom&metric=bugs)](https://sonarcloud.io/dashboard?id=LinWanCen_log-demo-pom)
+漏洞  | [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=LinWanCen_log-demo-pom&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=LinWanCen_log-demo-pom)
+代码行| [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=LinWanCen_log-demo-pom&metric=ncloc)](https://sonarcloud.io/dashboard?id=LinWanCen_log-demo-pom)
