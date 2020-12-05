@@ -17,8 +17,12 @@
     <module>logback-demo</module>
   </modules>
 
-  <!-- skip all and remove warn -->
   <properties>
+    <!-- sonarcloud -->
+    <sonar.projectKey>LinWanCen_log-demo-pom</sonar.projectKey>
+    <sonar.organization>linwancen</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <!-- skip all and remove warn -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.main.skip>true</maven.main.skip>
     <maven.test.skip>true</maven.test.skip>
