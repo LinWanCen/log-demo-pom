@@ -8,22 +8,22 @@ import java.util.UUID;
 
 public class Log4j2Demo {
 
-    private static final Logger LINK_LOGGER = LoggerFactory.getLogger("Link");
-    private static final Logger LOGGER = LoggerFactory.getLogger(Log4j2Demo.class);
-    private static final Logger LOGGER_OTHER = LoggerFactory.getLogger("other");
+    private static final Logger LINK_LOG = LoggerFactory.getLogger("Link");
+    private static final Logger LOG = LoggerFactory.getLogger(Log4j2Demo.class);
+    private static final Logger LOG_OTHER = LoggerFactory.getLogger("other");
 
     public static void main(String[] args) {
-        LINK_LOGGER.info("IntelliJ IDEA Link");
+        LINK_LOG.info("IntelliJ IDEA Link");
         String traceId = UUID.randomUUID().toString().replace("-", "");
         MDC.put("traceId", traceId);
         int i = 0;
         do {
-            LOGGER.info("中文正常 生僻字：爨 LOGGER.info {}", i);
-            LOGGER.warn("中文正常 生僻字：爨 LOGGER.warn {}", i);
-            LOGGER.error("中文正常 生僻字：爨 LOGGER.error {}", i);
-            LOGGER_OTHER.info("中文正常 生僻字：爨 LOGGER_OTHER.info {}", i);
-            LOGGER_OTHER.warn("中文正常 生僻字：爨 LOGGER_OTHER.warn {}", i);
-            LOGGER_OTHER.error("中文正常 生僻字：爨 LOGGER_OTHER.error {}", i);
+            LOG.info("中文正常 生僻字：爨 LOG.info {}", i);
+            LOG.warn("中文正常 生僻字：爨 LOG.warn {}", i);
+            LOG.error("中文正常 生僻字：爨 LOG.error {}", i);
+            LOG_OTHER.info("中文正常 生僻字：爨 LOG_OTHER.info {}", i);
+            LOG_OTHER.warn("中文正常 生僻字：爨 LOG_OTHER.warn {}", i);
+            LOG_OTHER.error("中文正常 生僻字：爨 LOG_OTHER.error {}", i);
             i++;
         }
         // while (true);
