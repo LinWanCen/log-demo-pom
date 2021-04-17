@@ -4,20 +4,12 @@
   <Properties>
     <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS}\t%level\t%thread\t%X{traceId}\t|\t%msg%n</Property>
     <Property name="linkPattern">%d{yyyy-MM-dd HH:mm:ss.SSS}\t%level\t%thread\t%X{traceId}\t(%F:%L)\t|\t%msg%n</Property>
-    <Property name="baseDir">target/logs</Property>
+    <Property name="baseDir">/opt/logs/log4j2-demo</Property>
     <Property name="prefix">${baseDir}/$${date:yyyy-MM}/$${date:yyyy-MM-dd}</Property>
     <Property name="suffix">%d{yyyy-MM-dd}.%i.log.gz</Property>
   </Properties>
 
   <Appenders>
-
-    <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="${pattern}" charset="UTF-8"/>
-    </Console>
-
-    <Console name="LinkConsole" target="SYSTEM_OUT">
-      <PatternLayout pattern="${linkPattern}" charset="UTF-8"/>
-    </Console>
 
     <RollingRandomAccessFile name="app" fileName="${baseDir}/app.log" filePattern="${prefix}/app/app.${suffix}">
       <PatternLayout>
@@ -60,19 +52,15 @@
 
   <Loggers>
 
-    <AsyncLogger name="Link" level="info" additivity="false" includeLocation="true">
-      <AppenderRef ref="LinkConsole"/>
-    </AsyncLogger>
-
     <AsyncLogger name="io.github.linwancen.demo.log4j2" level="info" additivity="false">
-      <!--<AppenderRef ref="Console"/>-->
       <AppenderRef ref="app"/>
     </AsyncLogger>
 
-    <AsyncLogger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+    <AsyncLogger name="io.github.linwancen.demo" level="warn" additivity="false">
+      <AppenderRef ref="app"/>
+    </AsyncLogger>
 
     <AsyncRoot level="warn">
-      <!--<AppenderRef ref="Console"/>-->
       <AppenderRef ref="root"/>
     </AsyncRoot>
 

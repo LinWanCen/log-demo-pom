@@ -5,24 +5,9 @@
 
   <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS}\t%level\t%thread\t%X{traceId}\t|\t%msg%n"/>
   <property name="linkPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS}\t%level\t%thread\t%X{traceId}\t(%F:%L\\\)\t|\t%msg%n"/>
-  <property name="baseDir" value="target/logs"/>
+  <property name="baseDir" value="/opt/logs/logback-demo"/>
   <property name="prefix" value="${baseDir}/%d{yyyy-MM, aux}/%d{yyyy-MM-dd}"/>
   <property name="suffix" value="%d{yyyy-MM-dd}.%i.log.gz"/>
-
-
-  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder>
-      <pattern>${pattern}</pattern>
-      <charset>UTF-8</charset>
-    </encoder>
-  </appender>
-
-  <appender name="LinkConsole" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder>
-      <pattern>${linkPattern}</pattern>
-      <charset>UTF-8</charset>
-    </encoder>
-  </appender>
 
   <!-- region [App File Appender] -->
 
@@ -74,19 +59,15 @@
 
   <!-- endregion [Root File Appender] -->
 
-  <logger name="Link" level="info" additivity="false">
-    <appender-ref ref="LinkConsole"/>
-  </logger>
-
   <logger name="io.github.linwancen.demo.logback" level="info" additivity="false">
-    <!--<appender-ref ref="Console"/>-->
     <appender-ref ref="async-app"/>
   </logger>
 
-  <logger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+  <logger name="io.github.linwancen.demo" level="warn" additivity="false">
+    <appender-ref ref="async-app"/>
+  </logger>
 
   <root level="warn">
-    <!--<appender-ref ref="Console"/>-->
     <appender-ref ref="async-root"/>
   </root>
 

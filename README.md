@@ -30,10 +30,24 @@
 [slf4j](http://www.slf4j.org/faq.html#yet_another_facade)
 
 
+## 说明 Note
+
+下面的配置是无输出\
+The following configuration is no output
+```xml
+    <AsyncLogger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+```
+
+
 ## 更新日志 Update log
 
-增加了在 IntelliJ IDEA 中显示链接的配置，用于演示程序
-add show link for demo
+2020-04-17 \
+分环境打包举例 \
+Example of env profile
+
+2020-11-27 \
+增加了在 IntelliJ IDEA 中显示链接的配置，用于演示程序 \
+Add show link for demo
 
 
 ## 代码扫描 SonarCloud

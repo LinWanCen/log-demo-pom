@@ -2,6 +2,7 @@
   <configuration default="false" name="LogbackDemo" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="io.github.linwancen.demo.logback.LogbackDemo" />
     <module name="logback-demo" />
+    <option name="WORKING_DIRECTORY" value="$ModuleFileDir$" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="io.github.linwancen.demo.logback.*" />

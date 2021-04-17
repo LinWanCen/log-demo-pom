@@ -2,6 +2,7 @@
   <configuration default="false" name="Log4j2Demo" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="io.github.linwancen.demo.log4j2.Log4j2Demo" />
     <module name="log4j2-demo" />
+    <option name="WORKING_DIRECTORY" value="$ModuleFileDir$" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="io.github.linwancen.demo.log4j2.*" />
