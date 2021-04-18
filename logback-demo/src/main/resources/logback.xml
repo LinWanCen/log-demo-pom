@@ -31,7 +31,7 @@
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <fileNamePattern>${prefix}/app/app.${suffix}</fileNamePattern>
       <maxFileSize>10MB</maxFileSize>
-      <maxHistory>20</maxHistory>
+      <maxHistory>200</maxHistory>
       <totalSizeCap>5GB</totalSizeCap>
       <cleanHistoryOnStart>true</cleanHistoryOnStart>
     </rollingPolicy>
@@ -56,7 +56,7 @@
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <fileNamePattern>${prefix}/root/root.${suffix}</fileNamePattern>
       <maxFileSize>10MB</maxFileSize>
-      <maxHistory>20</maxHistory>
+      <maxHistory>15</maxHistory>
       <totalSizeCap>5GB</totalSizeCap>
       <cleanHistoryOnStart>true</cleanHistoryOnStart>
     </rollingPolicy>
