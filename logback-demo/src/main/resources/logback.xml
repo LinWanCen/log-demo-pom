@@ -83,7 +83,7 @@
     <appender-ref ref="async-app"/>
   </logger>
 
-  <logger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+  <logger name="io.github.linwancen.demo" level="warn"/>
 
   <root level="warn">
     <!--<appender-ref ref="Console"/>-->

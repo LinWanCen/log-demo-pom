@@ -22,9 +22,9 @@
         <SizeBasedTriggeringPolicy size="10 MB"/>
       </Policies>
       <DefaultRolloverStrategy max="20">
-        <Delete basePath="${baseDir}" maxDepth="2">
-          <IfFileName glob="*/app.*.log.gz"/>
-          <IfLastModified age="400d"/>
+        <Delete basePath="${baseDir}" maxDepth="4">
+          <IfFileName glob="**/app.*.log.gz"/>
+          <IfLastModified age="200d"/>
         </Delete>
       </DefaultRolloverStrategy>
     </RollingRandomAccessFile>
@@ -40,9 +40,9 @@
         <SizeBasedTriggeringPolicy size="10 MB"/>
       </Policies>
       <DefaultRolloverStrategy max="20">
-        <Delete basePath="${baseDir}" maxDepth="2">
-          <IfFileName glob="*/root.*.log.gz"/>
-          <IfLastModified age="200d"/>
+        <Delete basePath="${baseDir}" maxDepth="4">
+          <IfFileName glob="**/root.*.log.gz"/>
+          <IfLastModified age="15d"/>
         </Delete>
       </DefaultRolloverStrategy>
     </RollingRandomAccessFile>
@@ -56,9 +56,7 @@
       <AppenderRef ref="app"/>
     </AsyncLogger>
 
-    <AsyncLogger name="io.github.linwancen.demo" level="warn" additivity="false">
-      <AppenderRef ref="app"/>
-    </AsyncLogger>
+    <AsyncLogger name="io.github.linwancen.demo" level="warn"/>
 
     <AsyncRoot level="warn">
       <AppenderRef ref="root"/>

@@ -32,10 +32,10 @@
 
 ## 说明 Note
 
-下面的配置是无输出\
-The following configuration is no output
+如果下面这种没带`Appender`的配置了`additivity="false"`，将会没有输出\
+If the following add `additivity="false"`, there will be no output
 ```xml
-    <AsyncLogger name="io.github.linwancen.demo" level="warn" additivity="false"/>
+    <AsyncLogger name="io.github.linwancen.demo" level="warn"/>
 ```
 
 
