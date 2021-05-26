@@ -1,3 +1,5 @@
+*/logs/
+
 target/
 !**/src/main/**
 !**/src/test/**

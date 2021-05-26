@@ -32,7 +32,10 @@
       <DefaultRolloverStrategy max="20">
         <Delete basePath="${baseDir}" maxDepth="4">
           <IfFileName glob="**/app.*.log.gz"/>
-          <IfLastModified age="200d"/>
+          <IfAny>
+            <IfLastModified age="200d"/>
+            <IfAccumulatedFileSize exceeds="5GB"/>
+          </IfAny>
         </Delete>
       </DefaultRolloverStrategy>
     </RollingRandomAccessFile>
@@ -50,7 +53,10 @@
       <DefaultRolloverStrategy max="20">
         <Delete basePath="${baseDir}" maxDepth="4">
           <IfFileName glob="**/root.*.log.gz"/>
-          <IfLastModified age="15d"/>
+          <IfAny>
+            <IfLastModified age="15d"/>
+            <IfAccumulatedFileSize exceeds="5GB"/>
+          </IfAny>
         </Delete>
       </DefaultRolloverStrategy>
     </RollingRandomAccessFile>
